@@ -1,5 +1,81 @@
-<svg width='500' height='500' style='border:1px solid #00000060;'>
-  <g class="counties"></g>
-  <path class="county-borders"></path>
-</svg>
-<div class="county"></div>
+<div class="display:flex">
+  <div class="taiwan-area">
+    <svg width='700' height='700' style="margin-left:20%; ">
+      <g class="counties"></g>
+      <path class="county-borders"></path>
+    </svg>
+    <div class="county"></div>
+  </div>
+
+  <div class="area-box" *ngFor="let item of areaInfo">
+    <h1 style="text-align: center;">{{item.area}}</h1>
+    <p style="text-align: center;"> 得票率</p>
+    <div class="flex">
+      <p>{{item.p1}}</p>
+      <p class="line-bar " style="width:{{item.p1rate}};background-color:#EEC020"></p>
+      <p>{{item.p1rate}}</p>
+    </div>
+    <div class="flex">
+      <p>{{item.p2}}</p>
+      <p class="line-bar" style="width:{{item.p2rate}}; background-color:#5195C7;
+  "></p>
+      <p>{{item.p2rate}}</p>
+    </div>
+    <div class="flex">
+      <p>{{item.p3}}</p>
+      <p class="line-bar" style="width:{{item.p3rate}}; background-color:#6CC25E;
+  "></p>
+      <p>{{item.p3rate}}</p>
+    </div>
+    <div class="line"></div>
+    <p style="text-align: center;">過去戰績</p>
+    <div class="record-box">
+      <div class="flex justify-around">
+        <p>2020總統大選</p>
+        <p>{{item.pastElection2020}}</p>
+        <img tyle="width:30px" src="assets/Group 2-y.svg">
+      </div>
+      <div class="flex justify-around">
+        <p>2018九合一大選</p>
+        <p>{{item.pastElection2018}}</p>
+        <img tyle="width:30px" src="assets/Group 2-b.svg">
+      </div>
+      <div class="flex justify-around">
+        <p>2016總統大選</p>
+        <p>{{item.pastElection2016}}</p>
+        <img style="width:30px" src="assets/Group 2-g.svg">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="year-party-box">
+  <div class="year-box">
+    <p>2016</p>
+    <p>2018</p>
+    <p>2020</p>
+  </div>
+  <div>
+    <div class="party-box" >
+      <div class="flex" style="align-items: center;">
+        <p>進步黨</p>
+        <div style="margin: 20px;">
+          <img tyle="width:50px" src="assets/Frame 8-y.svg">
+        </div>
+      </div>
+      <div class="flex" style="align-items: center;">
+      <p>藍天黨</p>
+      <div style="margin: 20px;">
+        <img tyle="width:50px" src="assets/Frame 8-b.svg">
+      </div>
+      </div>
+      <div class="flex" style="align-items: center;">
+      <p>綠地黨</p>
+      <div style="margin: 20px;">
+        <img tyle="width:50px" src="assets/Frame 8-g.svg">
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

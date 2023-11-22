@@ -9,3 +9,69 @@
 .county:hover {
   fill: #ea0000;
 }
+
+.area-box{
+  background-color:#F6F6F6;
+  margin:30px;
+  top:10%;
+  left:75%;
+  width:300px;
+  position:absolute;
+  border-radius:30px;
+  padding:20px;
+}
+
+.taiwan-area{
+  position:absolute;
+  left:30%
+}
+
+.flex{
+  display:flex;
+}
+
+.justify-around{
+  justify-content:space-around
+}
+
+.line-bar{
+  border: 2px solid transparent;
+  height:10px;
+  margin-top:20px;
+  background-color:lightBlue;
+  border-radius:10px
+}
+
+.line{
+  border:1px solid lightGray;
+  width:90%;
+  margin:10px
+}
+
+.year-box{
+  width:40px;
+  background-color:#EDEDED;
+  padding:15px;
+  border-radius:20px;
+  font-weight:700
+}
+
+.year-box p{
+  margin: 40px 0;
+}
+
+.party-box{
+font-size:20px
+}
+
+.year-party-box{
+  position:absolute;
+  top:40%;
+  left:3%
+}
+
+
+
+
+
+

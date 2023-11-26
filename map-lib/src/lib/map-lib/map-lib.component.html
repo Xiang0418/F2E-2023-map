@@ -7,52 +7,47 @@
     <div class="county"></div>
   </div>
 
-  <div class="area-box" *ngFor="let item of newInfo">
-    <h1 style="text-align: center">{{ item.area }}</h1>
+  <div class="area-box" *ngIf="newInfo">
+    <h1 style="text-align: center">{{ newInfo.area }}</h1>
     <p style="text-align: center">得票率</p>
     <div class="flex">
-      <p>{{ item.p1 }}</p>
+      <p>鄭紫雲</p>
       <p
         class="line-bar"
-        style="width:{{ item.p1rate }};background-color:#EEC020"
+        style="width:{{ newInfo.Percentage_Candidate1 }}%;background-color:#EEC020"
       ></p>
-      <p>{{ item.p1rate }}</p>
+      <p>{{ newInfo.Percentage_Candidate1 }}</p>
     </div>
     <div class="flex">
-      <p>{{ item.p2 }}</p>
+      <p>郭曉風</p>
       <p
         class="line-bar"
-        style="width:{{ item.p2rate }}; background-color:#5195C7;
+        style="width:{{ newInfo.Percentage_Candidate2 }}%; background-color:#5195C7;
   "
       ></p>
-      <p>{{ item.p2rate }}</p>
+      <p>{{ newInfo.Percentage_Candidate2 }}</p>
     </div>
     <div class="flex">
-      <p>{{ item.p3 }}</p>
+      <p>郭文山</p>
       <p
         class="line-bar"
-        style="width:{{ item.p3rate }}; background-color:#6CC25E;
+        style="width:{{ newInfo.Percentage_Candidate3 }}%; background-color:#6CC25E;
   "
       ></p>
-      <p>{{ item.p3rate }}</p>
+      <p>{{ newInfo.Percentage_Candidate3 }}</p>
     </div>
     <div class="line"></div>
     <p style="text-align: center">過去戰績</p>
     <div class="record-box">
       <div class="flex justify-around">
         <p>2020總統大選</p>
-        <p>{{ item.pastElection2020 }}</p>
-        <img tyle="width:30px" src="assets/Group 2-y.svg" />
-      </div>
-      <div class="flex justify-around">
-        <p>2018九合一大選</p>
-        <p>{{ item.pastElection2018 }}</p>
-        <img tyle="width:30px" src="assets/Group 2-b.svg" />
+        <p>{{ historyData.v2020.per }}</p>
+        <img tyle="width:30px" src="{{historyData.v2020.name}}" />
       </div>
       <div class="flex justify-around">
         <p>2016總統大選</p>
-        <p>{{ item.pastElection2016 }}</p>
-        <img style="width: 30px" src="assets/Group 2-g.svg" />
+        <p>{{ historyData.v2016.per }}</p>
+        <img style="width: 30px" [src]="historyData.v2016.name" />
       </div>
     </div>
   </div>

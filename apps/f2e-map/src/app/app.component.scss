@@ -1,11 +1,27 @@
+.home {
+  background-color: #fff;
+  background-size: cover;
+  animation: fadeInAnimation ease 3s;
+  // animation-iteration-count: 1;
+  // animation-fill-mode: forwards;
+  z-index: 9999;
+   position: absolute;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 .menu-wrap {
   width: 5%;
-
 }
-.menu{
+.menu {
   position: fixed;
   right: 2%;
   bottom: 5%;
   margin-top: -2.5em;
-
 }

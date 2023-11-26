@@ -6,10 +6,20 @@
 //   stroke-width: 0.5px;
 // }
 
-// .county:hover {
-//   fill: #8d2f2f;
-// }
+.county:hover {
+  fill: white;
+  stroke: rgb(193, 213, 215);
+  stroke-width: 3px;
+  transition: 0.5s;
+  transform: translateX(3px);
+}
 
 body{
   background-color: #E7E7E7;
+}
+
+.clicked{
+  fill: rgb(255, 255, 255), 233, 240;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 1px;
 }

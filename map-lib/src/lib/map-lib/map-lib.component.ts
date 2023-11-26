@@ -159,6 +159,7 @@ export class MapLibComponent implements OnInit {
           .attr("d", pathGenerator)
           .attr("class", "county")
           .attr("fill", (d: any) => this.colorArray.find((x)=>x.area === d.properties.COUNTYNAME).fill)
+          .style("stroke",'white')
           .on('click', (event, d: any) => {
             const externalData = this.areaInfo;
             this.newInfo = externalData?.filter(x => x.area === d.properties.COUNTYNAME)

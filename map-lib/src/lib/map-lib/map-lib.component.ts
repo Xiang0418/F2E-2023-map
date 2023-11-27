@@ -62,6 +62,7 @@ export class MapLibComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.isClassActive = '2020'
     let svg = d3.select("svg");
     console.log(svg);
     let g = svg.append("g");

@@ -55,8 +55,10 @@
 }
 
 .year-box p {
-  margin: 40px 0;
+  margin: 40px -3px;
+
 }
+
 
 .party-box {
   font-size: 20px;
@@ -72,6 +74,16 @@
   fill: lightBlue;
   stroke: rgb(255, 255, 255);
   stroke-width: 3px;
+}
+
+.active {
+  background-color:white;
+  /* padding:0 10px; */
+  border-radius:10px;
+  transition:0.5s;
+  padding: 6px 8px;
+    line-height: 30px;
+    height: 30px;
 }
 
 /* .menu-wrap {

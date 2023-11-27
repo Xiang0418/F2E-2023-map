@@ -62,8 +62,8 @@
 
 <div class="year-party-box">
   <div class="year-box">
-    <p>2016</p>
-    <p>2020</p>
+    <p [ngClass]="{'active': isClassActive ==='2016'}"  (click)="changYear('2016')">2016</p>
+    <p [ngClass]="{'active': isClassActive ==='2020'}"   (click)="changYear('2020')">2020</p>
   </div>
   <div>
     <div class="party-box">

@@ -15,7 +15,9 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./map-lib.component.css'],
 })
 export class MapLibComponent implements OnInit {
+  isClassActive: string = '';
   receivedData: any;
+  year:any;
 
 
   @Input() data?: any;
@@ -79,10 +81,12 @@ export class MapLibComponent implements OnInit {
             for (let i = 0; i < geometries.features.length; i++) {
               geometries.features[i].vote = votes2020[geometries.features[i].properties['COUNTYNAME']]
               geometries.features[i].vote2016 = votes2016[geometries.features[i].properties['COUNTYNAME']]
+              // geometries.features = this.year === '2016' ? geometries.features[i].vote2016 : geometries.features[i].vote
             }
 
             console.log("load success")
             g.append("path")
+            console.log(geometries.features)
             const paths = g.selectAll("path").data(geometries.features);
             paths.enter()
               .append("path")
@@ -98,12 +102,12 @@ export class MapLibComponent implements OnInit {
               .style("stroke", 'white')
               .on('click', (event, d: any) => {
                 d.vote.countyName = d.properties.COUNTYNAME
-                this.newInfo = d.vote
+                this.newInfo = this.year === '2016' ? d.vote2016 : d.vote
+                console.log(this.newInfo.countyName)
                 console.log(d.vote.countyName)
                 this.historyData.v2020 = this.getWinColor(votes2020[d.vote.countyName])
                 this.historyData.v2016 = this.getWinColor(votes2016[d.vote.countyName])
                 this.transdataService.sendData(d.vote.countyName)
-
 
               })
               .append("title")
@@ -123,6 +127,13 @@ export class MapLibComponent implements OnInit {
     else if (vote.Percentage_Candidate2 == max) return {'name': 'assets/Group 2-b.svg', 'fill': this.pColor[1].fill, 'per': max};
     else return {'name': 'assets/Group 2-g.svg', 'fill': this.pColor[2].fill, 'per': max};
   }
+
+  changYear(year:string){
+    console.log(year)
+    this.year = year
+    this.isClassActive = year
+  }
+
 
   ngOnDestroy() {
     // this.subscription.unsubscribe();

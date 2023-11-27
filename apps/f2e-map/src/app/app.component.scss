@@ -1,18 +1,23 @@
 .home {
   background-color: #fff;
   background-size: cover;
-  animation: fadeInAnimation ease 3s;
-  // animation-iteration-count: 1;
-  // animation-fill-mode: forwards;
+  animation-delay: 3s;
+  animation: fadeInAnimation ease-in-out 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   z-index: 9999;
-   position: absolute;
+  position: absolute;
 }
 @keyframes fadeInAnimation {
   0% {
+    left: 0;
+    background: #fff;
     opacity: 1;
   }
   100% {
+    left: 1000px;
     opacity: 0;
+    background: #fff;
     display: none;
   }
 }

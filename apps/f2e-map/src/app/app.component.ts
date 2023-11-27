@@ -24,14 +24,13 @@ export class AppComponent implements OnInit {
   title = 'f2e-map';
   a = data;
   show: boolean = false;
-
-  constructor(
-    private transdataService:TransdataService
-  ){
-
-  }
+  intro: boolean = true;
+  constructor(private transdataService: TransdataService) {}
 
   ngOnInit(): void {
-    this.transdataService.getData()
+    this.transdataService.getData();
+    setTimeout(() => {
+      this.intro = false;
+    }, 5000);
   }
 }

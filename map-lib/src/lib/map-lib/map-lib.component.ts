@@ -1,9 +1,11 @@
+import { TransdataService } from './../transdata.service';
 import {Component, Input, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import * as d3 from 'd3';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import * as topojson from 'topojson-client';
 import {BaseType} from "d3";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'org-map-lib',
@@ -13,6 +15,8 @@ import {BaseType} from "d3";
   styleUrls: ['./map-lib.component.css'],
 })
 export class MapLibComponent implements OnInit {
+  receivedData: any;
+
 
   @Input() data?: any;
 
@@ -48,6 +52,11 @@ export class MapLibComponent implements OnInit {
     },
   ]
   historyData: any = {}
+
+  constructor(
+    private transdataService: TransdataService
+  ){
+  }
 
 
   ngOnInit(): void {
@@ -93,6 +102,9 @@ export class MapLibComponent implements OnInit {
                 console.log(d.vote.countyName)
                 this.historyData.v2020 = this.getWinColor(votes2020[d.vote.countyName])
                 this.historyData.v2016 = this.getWinColor(votes2016[d.vote.countyName])
+                this.transdataService.sendData(d.vote.countyName)
+
+
               })
               .append("title")
               .text((d: any) => d.properties["COUNTYNAME"])
@@ -110,5 +122,9 @@ export class MapLibComponent implements OnInit {
     if (vote.Percentage_Candidate1 == max) return {'name': 'assets/Group 2-y.svg', 'fill': this.pColor[0].fill, 'per': max};
     else if (vote.Percentage_Candidate2 == max) return {'name': 'assets/Group 2-b.svg', 'fill': this.pColor[1].fill, 'per': max};
     else return {'name': 'assets/Group 2-g.svg', 'fill': this.pColor[2].fill, 'per': max};
+  }
+
+  ngOnDestroy() {
+    // this.subscription.unsubscribe();
   }
 }

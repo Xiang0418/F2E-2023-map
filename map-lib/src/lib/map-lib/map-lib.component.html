@@ -8,10 +8,10 @@
   </div>
 
   <div class="area-box" *ngIf="newInfo">
-    <h1 style="text-align: center">{{ newInfo.area }}</h1>
+    <h1 style="text-align: center">{{ newInfo.countyName }}</h1>
     <p style="text-align: center">得票率</p>
     <div class="flex">
-      <p>鄭紫雲</p>
+      <p style="margin-right: 5px;">鄭紫雲</p>
       <p
         class="line-bar"
         style="width:{{ newInfo.Percentage_Candidate1 }}%;background-color:#EEC020"
@@ -19,7 +19,7 @@
       <p>{{ newInfo.Percentage_Candidate1 }}</p>
     </div>
     <div class="flex">
-      <p>郭曉風</p>
+      <p style="margin-right: 5px;">郭曉風</p>
       <p
         class="line-bar"
         style="width:{{ newInfo.Percentage_Candidate2 }}%; background-color:#5195C7;
@@ -28,7 +28,7 @@
       <p>{{ newInfo.Percentage_Candidate2 }}</p>
     </div>
     <div class="flex">
-      <p>郭文山</p>
+      <p style="margin-right: 5px;">郭文山</p>
       <p
         class="line-bar"
         style="width:{{ newInfo.Percentage_Candidate3 }}%; background-color:#6CC25E;
@@ -42,12 +42,12 @@
       <div class="flex justify-around">
         <p>2020總統大選</p>
         <p>{{ historyData.v2020.per }}</p>
-        <img tyle="width:30px" src="{{historyData.v2020.name}}" />
+        <img style="width:30px" src="{{historyData.v2020.name}}" />
       </div>
       <div class="flex justify-around">
         <p>2016總統大選</p>
         <p>{{ historyData.v2016.per }}</p>
-        <img style="width: 30px" [src]="historyData.v2016.name" />
+        <img style="width:30px" [src]="historyData.v2016.name" />
       </div>
     </div>
   </div>
@@ -63,7 +63,6 @@
 <div class="year-party-box">
   <div class="year-box">
     <p>2016</p>
-    <p>2018</p>
     <p>2020</p>
   </div>
   <div>

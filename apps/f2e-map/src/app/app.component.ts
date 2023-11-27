@@ -1,3 +1,4 @@
+import { TransdataService } from './../../../../map-lib/src/lib/transdata.service';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
@@ -23,7 +24,14 @@ export class AppComponent implements OnInit {
   title = 'f2e-map';
   a = data;
   show: boolean = false;
+
+  constructor(
+    private transdataService:TransdataService
+  ){
+
+  }
+
   ngOnInit(): void {
-    console.log(data);
+    this.transdataService.getData()
   }
 }
